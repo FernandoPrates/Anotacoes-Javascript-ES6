@@ -1,0 +1,579 @@
+Variáveis: var, let, const
+
+var nome = 'André';
+let idade = 28;
+const possuiFaculdade = true;
+-------------------------------
+Varipaveis que evitam repetições
+
+var preco = 20;
+var totalComprado = 5;
+var precoTotal = preco * totalComprado;
+---------------------------------
+SINTAXE
+Palavra chave var seguida do nome, sinal de igual e o valor.
+
+var nome = 'André';
+var idade = 28;
+var possuiFaculdade = true;
+----------------------------------
+
+VARIÁVEIS VÁLIDAS E INVÁLIDAS
+
+// Inválido
+var §nome;
+var function;
+var 1possuiFaculdade;
+
+// Válido
+var $selecionar;
+var _nome;
+var possuiFaculdadeNoExterior;
+@@_______________________________________________________@@
+
+TIPOS DE DADOS
+
+Todos são primitivos exceto os objetos.
+
+var nome = 'André'; // String
+var idade = 28; // Number
+var possuiFaculdade = true; // Boolean
+var time; // Undefined
+var comida = null; // Null
+var simbolo = Symbol() // Symbol
+var novoObjeto = {} // Object
+------------------------------------------------
+STRING
+Você pode somar uma string e assim concatenar as palavras.
+
+var nome = 'André';
+var sobrenome = 'Rafael';
+var nomeCompleto = nome + ' ' + sobrenome;
+--------------------------------------------------
+STRING
+Você pode somar números com strings, o resultado final é sempre uma string.
+
+var gols = 1000;
+var frase = 'Romário fez ' + gols + ' gols';
+-------------------------------------------------
+TEMPLATE STRING
+
+var gols = 1000;
+var frase1 = 'Romário fez ' + gols + ' gols';
+var frase2 = `Romário fez ${gols} gols`; // Utilizando Template String
+@@_______________________________________________________________________________@@
+
+NÚMEROS E OPERADORES
+
+var idade = 28;
+var gols = 1000;
+var pi = 3.14; // ponto para decimal
+var exp = 2e10; // 20000000000
+--------------------------------------
+OPERADORES ARITMÉTICOS
+
+var soma = 100 + 50; // 150
+var subtracao = 100 - 50; // 50
+var multiplicacao = 100 * 2; // 200
+var divisao = 100 / 2; // 50
+var expoente = 2 ** 4; // 16
+var modulo = 14 % 5; // 4
+------------------------------------------
+OPERADORES ARITMÉTICOS (STRINGS)
+
+var soma = '100' + 50; // 10050
+var subtracao = '100' - 50; // 50
+var multiplicacao = '100' * '2'; // 200
+var divisao = 'Comprei 10' / 2; // NaN (Not a Number)
+------------------------------------------
+OPERADORES ARITMÉTICOS UNÁRIOS
+
+var incremento = 5;
+console.log(incremento++); // 5
+console.log(incremento); // 6
+
+var incremento2 = 5;
+console.log(++incremento2); // 6
+console.log(incremento2); // 6
+----------------------------------------------
+var idade = '28';
++idade; // 28 (número)
+-idade; // -28 (número)
+console.log(+idade + 5); // 33 
+-------------------------------------
+@@___________________________________________@@
+
+BOOLEAN
+
+CONDICIONAIS ELSE IF
+Se o if não for verdadeiro, ele testa o else if
+
+var possuiGraduacao = true;
+var possuiDoutorado = false;
+
+if(possuiDoutorado) {
+  console.log('Possui graduação e doutorado');
+} else if(possuiGraduacao) {
+  console.log('Possui graduação, mas não possui doutorado');
+} else {
+  console.log('Não possui graduação');
+}
+// retorna Possui Graduação, mas não possui doutorado
+----------------------------------------------------------------------
+
+SWITCH
+
+Com o switch você pode verificar se uma variável é igual à diferentes valores utilizando o case. Caso ela seja igual, você pode fazer alguma coisa e utilizar a palavra chave break; para cancelar a continuação. O valor de default ocorrerá caso nenhuma das anteriores seja verdadeira.
+
+var corFavorita = 'Azul';
+
+switch (corFavorita) {
+  case 'Azul':
+    console.log('Olhe para o céu.');
+    break;
+  case 'Vermelho':
+    console.log('Olhe para rosas.');
+    break;
+  case 'Amarelo':
+    console.log('Olhe para o sol.');
+    break;
+  default:
+    console.log('Feche os olhos');
+}
+-------------------------------------------------------------------
+TRUTHY E FALSY
+Existem valores que retornam true e outros que retornam false quando verificados em uma expressão booleana.
+
+// Falsy
+if(false)
+if(0) // ou -0
+if(NaN)
+if(null)
+if(undefined)
+if('') // ou "" ou ``
+COPIAR
+Todo o resto é truthy
+
+TRUTHY
+
+// Truthy
+if(true)
+if(1)
+if(' ')
+if('andre')
+if(-5)
+if({})
+------------------------------
+OPERADOR LÓGICO DE NEGAÇÃO !
+
+O operador !, nega uma operação booleana. Ou seja, !true é igual a false
+
+// Truthy
+if(!true) // false
+if(!1) // false
+if(!'') // true
+if(!undefined) // true
+if(!!' ') // true
+if(!!'') // false
+COPIAR
+Dica, você pode utilizar o !! para verificar se uma expressão é Truthy ou Falsy
+------------------------
+OPERADORES DE COMPARAÇÃO
+
+O == faz uma comparação não tão estrita e o === faz uma comparação estrita, ou seja, o tipo de dado deve ser o mesmo quando usamos ===
+
+10 == '10'; // true
+10 == 10; // true
+10 === '10'; // false
+10 === 10 // true
+10 != 15 // true
+10 != '10' // false
+10 !== '10' // true
+@@____________________________@@
+
+FUNÇÕES
+
+Bloco de código que pode ser executado e reutilizado. Valores podem ser passados por uma função e a mesma retorna outro valor.
+
+function areaQuadrado(lado) {
+  return lado * lado;
+}
+
+areaQuadrado(4) // 16
+areaQuadrado(5) // 25
+areaQuadrado(2) // 4
+--------------------------
+function pi() {
+  return 3.14;
+}
+
+var total = 5 * pi(); // 15.7
+
+Parênteses () executam uma função
+-----------------------------------
+PARÂMETROS E ARGUMENTOS
+
+Ao CRIAR uma função, você pode definir PARÂMETROS.
+
+Ao EXECUTAR uma função, você pode passar ARGUMENTOS.
+
+// peso e altura são os parâmetros
+function imc(peso, altura) {
+  const imc = peso / (altura ** 2);
+  return imc; //Quando não definimos o return, ela irá retornar undefined. 
+
+imc(80, 1.80) // 80 e 1.80 são os argumentos
+imc(60, 1.70) // 60 e 1.70 são os argumentos
+
+Separar por vírgula cada parâmetro. Você pode definir mais de um parâmetro ou nenhum também
+----------------------------------
+PARÊNTESES EXECUTA A FUNÇÃO
+
+function corFavorita(cor) {
+  if(cor === 'azul') {
+    return 'Você gosta do céu';
+  } else if(cor === 'verde') {
+    return 'Você gosta de mato';
+  } else {
+    return 'Você não gosta de nada';
+  }
+}
+corFavorita(); // retorna 'Você não gosta de nada'
+
+Se apenas definirmos a função com o function e não executarmos a mesma, nada que estiver dentro dela irá acontecer
+------------------------------------------
+ARGUMENTOS PODEM SER FUNÇÕES
+
+Chamadas de Callback, geralmente são funções que ocorrem após algum evento.
+
+addEventListener('click', function() {
+  console.log('Clicou');
+});
+// A função possui dois argumentos
+// Primeiro é a string 'click'
+// Segundo é uma função anônima
+
+Funções anônimas são aquelas em que o nome da função não é definido, escritas como function() {} ou () => {}
+--------------------------------------
+VALORES RETORNADOS
+
+Uma função pode retornar qualquer tipo de dado e até outras funções.
+
+function terceiraIdade(idade) {
+  if(typeof idade !== 'number') {
+    return 'Informe a sua idade!';
+  } else if(idade >= 60) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+Cuidado, retornar diferentes tipos de dados na mesma função não é uma boa ideia.
+------------------------------------------------
+ESCOPO
+
+Variáveis e funções definidas dentro de um bloco {}, não são visíveis fora dele.
+
+function precisoVisitar(paisesVisitados) {
+  var totalPaises = 193;
+  return `Ainda faltam ${totalPaises - paisesVisitados} paises para visitar`
+}
+console.log(totalPaises); // erro, totalPaises não definido
+@@_______________________________________________________________@@
+
+OBJETOS	
+
+CRIAR UM OBJETO
+Um objeto é criado utilizando as chaves {}
+
+var carro = {};
+var pessoa = {};
+
+console.log(typeof carro); // 'object'
+-------------------------------
+DOT NOTATION GET
+
+Acesse propriedades de um objeto utilizando o ponto .
+
+var menu = {
+  width: 800,
+  height: 50,
+  backgroundColor: '#84E',
+}
+
+var bg = menu.backgroundColor; // '#84E'
+---------------------------------------
+ADICIONAR PROPRIEDADES E MÉTODOS
+
+Basta adicionar um novo nome e definir o valor.
+
+var menu = {
+  width: 800,
+}
+
+menu.height = 50;
+menu.position = 'fixed';
+----------------------------------------
+PALAVRA-CHAVE THIS
+
+this irá fazer uma referência ao próprio objeto.
+
+var height = 120;
+var menu = {
+  width: 800,
+  height: 50,
+  metadeHeight() {
+    return this.height / 2;
+  }
+}
+
+menu.metadeHeight(); // 25
+// sem o this, seria 60
+
+this irá retornar o próprio objeto
+@@_______________________________________@@
+
+ARRAY
+É um grupo de valores geralmente relacionados. Servem para guardarmos diferentes valores em uma única variável.
+
+var videoGames = ['Switch', 'PS4', 'XBox'];
+
+videoGames[0] // Switch
+videoGames[2] // Xbox
+
+Acesse um elemento da array utilizando [n]
+-------------------------------------------------
+MÉTODOS E PROPRIEDADES DE UMA ARRAY
+var videoGames = ['Switch', 'PS4', 'XBox'];
+
+videoGames.pop(); // Remove o último item e retorna ele
+videoGames.push('3DS'); // Adiciona ao final da array
+videoGames.length; // 3
+
+Existem diversos outros métodos, como map, reduce, forEach e mais que veremos mais à frente
+-------------------------------------------------
+FOR LOOP
+
+Fazem algo repetidamente até que uma condição seja atingida.
+
+for (var numero = 0; numero < 10; numero++) {
+  console.log(numero);
+}
+// Retorna de 0 a 9 no console
+
+O for loop possui 3 partes, início, condição e incremento
+-----------------------------------------------
+WHILE LOOP
+
+var i = 0;
+while (i < 10) {
+  console.log(i);
+  i++;
+}
+// Retorna de 0 a 9 no console
+COPIAR
+O for loop é o mais comum
+---------------------------------------------------
+ARRAYS E LOOPS
+
+var videoGames = ['Switch', 'PS4', 'XBox', '3DS'];
+for (var i = 0; i < videoGames.length; i++) {
+  console.log(videoGames[i]);
+}
+
+O for loop é o mais comum
+--------------------------------------------------
+BREAK
+
+O loop irá parar caso encontro e palavra break
+
+var videoGames = ['Switch', 'PS4', 'XBox', '3DS'];
+for (var i = 0; i < videoGames.length; i++) {
+  console.log(videoGames[i]);
+  if(videoGames[i] === 'PS4') {
+    break;
+  }
+}
+------------------------------------------------
+
+FOREACH
+
+forEach é um método que executa uma função para cada item da Array. É uma forma mais simples de utilizarmos um loop com arrays (ou array-like)
+
+var videoGames = ['Switch', 'PS4', 'XBox', '3DS'];
+videoGames.forEach(function(item) {
+  console.log(item);
+});
+
+// O argumento item será atribuído dinamicamente
+
+Podemos passar os seguintes parâmetros item, index e array
+@@___________________________________________________________@@
+
+Atribuição e Ternário
+
+COMENTÁRIOS
+Servem para explicar o código
+
+// Comentário de uma linha
+
+/*
+Comentário
+com diversas
+linhas
+*/
+
+// var nome = 'André';
+
+Comentar uma linha de código desativa a mesma. Não deixe linhas de código comentadas no arquivo final.
+---------------------------------------------------------
+OPERADORES DE ATRIBUIÇÃO
+Podem funcionar como formas abreviadas
+
+var x = 5;
+var y = 10;
+x += y; // x = x + y (15)
+x -= y; // x = x - y (-5)
+x *= y; // x = x * y (50)
+x /= y; // x = x / y (0.5)
+x %= y; // x = x % y (0)
+x **= y; // x = x ** y (9765625)
+-------------------------------------------------------------
+OPERADOR TERNÁRIO
+Abreviação de condicionais com if e else
+
+var idade = 19;
+var podeBeber = (idade >= 18) ? 'Pode beber' : 'Não pode beber';
+console.log(podeBeber) // Pode beber
+
+// condição ? true : false
+
+Geralmente utilizado quando precisamos atribuir um valor para uma variável, dependendo de uma condição
+------------------------------------------------------------------------
+IF ABREVIADO
+Não é necessário abrir e fechar as chaves {} quando retornamos apenas uma linha de código
+
+var possuiFaculdade = true;
+if(possuiFaculdade) console.log('Possui faculdade');
+else console.log('Não possui faculdade');
+
+// ou
+if(possuiFaculdade)
+  console.log('Possui faculdade');
+else
+  console.log('Não possui faculdade');
+
+Eu particularmente prefiro a segunda opção aqui
+@@______________________________________________________@@
+
+ESCOPO 
+
+ESCOPRO DE FUNÇÃO
+
+Variáveis declaradas dentro de funções não são acessadas fora das mesmas.
+
+function mostrarCarro() {
+  var carro = 'Fusca';
+  console.log(carro);
+}
+
+mostrarCarro(); // Fusca no console
+console.log(carro); // Erro, carro is not defined
+COPIAR
+Escopo evita o conflito entre nomes.
+-----------------------------------
+VARIÁVEL GLOBAL (ERRO)
+
+Declarar variáveis sem a palavra chave var, const ou let, cria uma variável que pode ser acessar em qualquer escopo (global). Isso é um erro.
+
+function mostrarCarro() {
+  carro = 'Fusca';
+  console.log(carro);
+}
+
+mostrarCarro(); // Fusca
+console.log(carro); // Fusca
+COPIAR
+'use strict' impede isso.
+-----------------------------------
+ESCOPO DE FUNÇÃO (PAI)
+
+Variáveis declaradas no escopo pai da função, conseguem ser acessadas pelas funções.
+
+var carro = 'Fusca';
+
+function mostrarCarro() {
+  var frase = `Meu carro é um ${carro}`;
+  console.log(frase);
+}
+
+mostrarCarro(); // Meu carro é um Fusca
+console.log(carro);  // Fusca
+----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
